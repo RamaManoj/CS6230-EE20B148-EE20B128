@@ -1,0 +1,69 @@
+package Stage_3;
+import  FIFO :: *;
+import Type_defs :: *;
+
+//Interface for stage_3
+//method to interface with Stage_2
+interface Stage_3_Ifc;
+    method Action feed(Output_stage_2 output_stage_2);//enq pipeline FIFO of Stage_3 
+endinterface :Stage_3_Ifc
+
+//module declaration
+(*synthesize*)
+module mkStage_3(Stage_3_Ifc);
+    FIFO#(Output_stage_2) input_fifo<-mkLFIFO;
+    //The following function will update the output
+    function Output_stage_3 get_stage_3();//allows stage_2 to get stage_1 results
+        Output_stage_3 output_stage_3;
+        output_stage_3.is_valid=input_fifo.first.is_valid;
+        output_stage_3.is_infi=False;
+        output_stage_3.is_NaN=False;
+        //handling special cases
+        if(input_fifo.first.is_NaN_1||input_fifo.first.is_NaN_2) begin
+            output_stage_3.is_NaN=True;
+            output_stage_3.sign_sum=1'b0;
+            output_stage_3.exponent_sum=11'b11111111111;
+            output_stage_3.mantissa_sum=54'b111111111111111111111111111111111111111111111111111111;
+        end
+        else if(input_fifo.first.is_infi_1) begin
+            output_stage_3.is_infi=True;
+            output_stage_3.sign_sum=input_fifo.first.sign_input_1;
+            output_stage_3.exponent_sum=11'b11111111111;
+            output_stage_3.mantissa_sum=54'b000000000000000000000000000000000000000000000000000000;
+        end
+        //infinity on first input takes precedence
+        else if(input_fifo.first.is_infi_2) begin
+            output_stage_3.is_infi=True;
+            output_stage_3.sign_sum=input_fifo.first.sign_input_2;
+            output_stage_3.exponent_sum=11'b11111111111;
+            output_stage_3.mantissa_sum=54'b000000000000000000000000000000000000000000000000000000;
+        end
+        //Addition
+        else begin 
+            output_stage_3.exponent_sum=input_fifo.first.exponent;
+            Bit#(55) signed_mantissa_1=input_fifo.first.mantissa_input_1;
+            Bit#(55) signed_mantissa_2=input_fifo.first.mantissa_input_2;
+            if(input_fifo.first.sign_input_1==1'b1) begin
+                signed_mantissa_1=-(input_fifo.first.mantissa_input_1);
+            end
+            if(input_fifo.first.sign_input_2==1'b1) begin
+                signed_mantissa_2=-(input_fifo.first.mantissa_input_2);
+            end
+            Bit#(55) sum_temp=signed_mantissa_1+signed_mantissa_2;
+            Bit#(55) neg_sum_temp=-sum_temp;
+            if(sum_temp[54]==1) begin
+                output_stage_3.sign_sum=1;
+                output_stage_3.mantissa_sum=neg_sum_temp[53:0];
+            end
+            else begin
+                output_stage_3.sign_sum=0;
+                output_stage_3.mantissa_sum=sum_temp[53:0];
+            end
+        end
+        return output_stage_3;
+    endfunction:get_stage_3
+    method Action feed(Output_stage_2 output_stage_2);
+        input_fifo.enq(output_stage_2);
+    endmethod: feed
+endmodule
+endpackage : Stage_3
