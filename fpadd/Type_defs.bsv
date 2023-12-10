@@ -28,6 +28,7 @@ typedef struct
     Bool is_infi_1;Bool is_infi_2; //Account for infinite numbers
     Bool is_valid;//function select/validity bit
 } Output_stage_2 deriving(Bits);
+//Out:2,In:3
 typedef struct
 {
     Bit#(1)  sign_sum;
@@ -37,5 +38,11 @@ typedef struct
     Bool is_infi; //Account for infinite numbers
     Bool is_valid;//function select/validity bit
 } Output_stage_3 deriving(Bits);
-//output of Stage_2
+//Out:3,In:4
+typedef struct
+{
+    Double final_sum;
+    Bool is_valid;//function select/validity bit
+} Output_stage_4 deriving(Bits);
+//Out:4
 endpackage : Type_defs

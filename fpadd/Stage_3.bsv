@@ -1,6 +1,7 @@
 package Stage_3;
 import  FIFO :: *;
 import Type_defs :: *;
+import Stage_4 :: *;
 
 //Interface for stage_3
 //method to interface with Stage_2
@@ -12,6 +13,7 @@ endinterface :Stage_3_Ifc
 (*synthesize*)
 module mkStage_3(Stage_3_Ifc);
     FIFO#(Output_stage_2) input_fifo<-mkLFIFO;
+    Stage_4_Ifc stage_4<-mkStage_4;
     //The following function will update the output
     function Output_stage_3 get_stage_3();//allows stage_2 to get stage_1 results
         Output_stage_3 output_stage_3;
@@ -62,6 +64,13 @@ module mkStage_3(Stage_3_Ifc);
         end
         return output_stage_3;
     endfunction:get_stage_3
+    rule rl_feed_stage_4;
+        $display("\n**Stage_3_Output**\nsign_sum:%0b\nexponent_sum:%0b\nmantissa_sum:%0b\n",
+        get_stage_3().sign_sum,
+        get_stage_3().exponent_sum,get_stage_3().mantissa_sum);
+        stage_4.feed(get_stage_3());
+        input_fifo.deq;
+    endrule : rl_feed_stage_4
     method Action feed(Output_stage_2 output_stage_2);
         input_fifo.enq(output_stage_2);
     endmethod: feed

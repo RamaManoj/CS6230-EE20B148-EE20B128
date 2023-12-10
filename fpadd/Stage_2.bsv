@@ -50,6 +50,10 @@ module mkStage_2(Stage_2_Ifc);
         return output_stage_2;
     endfunction:get_stage_2
     rule rl_feed_stage_3;
+        $display("\n**Stage_2_Output**\nsign_input_1:%0b\nsign_input_2:%0b\nexponent:%0b\nmant_input_1:%0b\nmant_input_2:%0b\n",
+        get_stage_2().sign_input_1,get_stage_2().sign_input_2,
+        get_stage_2().exponent,get_stage_2().mantissa_input_1,
+        get_stage_2().mantissa_input_2);
         stage_3.feed(get_stage_2());
         input_fifo.deq;
     endrule : rl_feed_stage_3
