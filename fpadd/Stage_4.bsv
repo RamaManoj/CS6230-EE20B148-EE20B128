@@ -235,7 +235,7 @@ module mkStage_4(Stage_4_Ifc);
         return output_stage_4;
     endfunction:get_stage_4
     rule rl_feed_output;
-        $display("\n**Stage_4_Output**\nOutput:%0b \n Valid:%0b", pack(get_stage_4().final_sum),pack(get_stage_4().is_valid));
+        $display("\n**Stage_4_Output**\nOutput:%b \n Valid:%0b", pack(get_stage_4().final_sum),pack(get_stage_4().is_valid));
         output_fifo.enq(get_stage_4());
         input_fifo.deq;
     endrule : rl_feed_output
