@@ -1,12 +1,9 @@
 //Date:25-11-2023
 //Author:V.V.S.Rama Manoj
 /*Goals of the following stage:
-1. This stage will shift the mantissa of the number with the smaller exponent to the right
-2. It will return sign bits, exponent, mantissae and flags corresponding to both inputs
+1.Normalization of output
+2.If shift required exceed limits of valid exponents, the result is made infinite or subnormal accordingly
 -----------------------------------------------------------------------------
-Notes:
-1. Input will be of same type as output of stage_1.
-2. All required flags and the valid bit will be continued to be carried.
 */
 package Stage_4;
 import  FIFO :: *;
@@ -16,7 +13,7 @@ import Type_defs :: *;
 //method to interface with Stage_3
 interface Stage_4_Ifc;
     method Action feed(Output_stage_3 output_stage_3);//enq pipeline FIFO of Stage_4
-    method Output_stage_4 read_output();
+    method Output_stage_4 read_output_4();
 endinterface :Stage_4_Ifc
 
 //module declaration
@@ -246,7 +243,7 @@ module mkStage_4(Stage_4_Ifc);
     method Action feed(Output_stage_3 output_stage_3);
         input_fifo.enq(output_stage_3);
     endmethod: feed
-    method Output_stage_4 read_output();
+    method Output_stage_4 read_output_4();
         return output_fifo.first;
     endmethod
 endmodule

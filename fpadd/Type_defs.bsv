@@ -4,7 +4,6 @@
 package Type_defs;
 typedef struct {Bit#(1) sign;Bit#(11) exponent;Bit#(52) mantissa;} Double deriving(Bits);
 //2 variables of double data type are taken as input by Stage_1
-
 typedef struct
 {
     Bit#(1) sign_input_1; 

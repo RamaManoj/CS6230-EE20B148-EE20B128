@@ -1,0 +1,214 @@
+
+56. Printing statistics.
+
+=== $paramod\FIFOL1\width=32'00000000000000000000000000000001 ===
+
+   Number of wires:                 14
+   Number of wire bits:             14
+   Number of public wires:           9
+   Number of public wire bits:       9
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  8
+     $_MUX_                          3
+     $_ORNOT_                        2
+     $_OR_                           1
+     sky130_fd_sc_hd__dfxtp_2        2
+
+=== $paramod\FIFOL1\width=32'00000000000000000000000001000000 ===
+
+   Number of wires:                 77
+   Number of wire bits:            203
+   Number of public wires:           9
+   Number of public wire bits:     135
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                134
+     $_MUX_                         66
+     $_ORNOT_                        2
+     $_OR_                           1
+     sky130_fd_sc_hd__dfxtp_2       65
+
+=== $paramod\FIFOL1\width=32'00000000000000000000000001000001 ===
+
+   Number of wires:                 78
+   Number of wire bits:            206
+   Number of public wires:           9
+   Number of public wire bits:     137
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                136
+     $_MUX_                         67
+     $_ORNOT_                        2
+     $_OR_                           1
+     sky130_fd_sc_hd__dfxtp_2       66
+
+=== $paramod\FIFOL1\width=32'00000000000000000000000001000101 ===
+
+   Number of wires:                 82
+   Number of wire bits:            218
+   Number of public wires:           9
+   Number of public wire bits:     145
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                144
+     $_MUX_                         71
+     $_ORNOT_                        2
+     $_OR_                           1
+     sky130_fd_sc_hd__dfxtp_2       70
+
+=== $paramod\FIFOL1\width=32'00000000000000000000000010000000 ===
+
+   Number of wires:                141
+   Number of wire bits:            395
+   Number of public wires:           9
+   Number of public wire bits:     263
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                262
+     $_MUX_                        130
+     $_ORNOT_                        2
+     $_OR_                           1
+     sky130_fd_sc_hd__dfxtp_2      129
+
+=== $paramod\FIFOL1\width=32'00000000000000000000000010010111 ===
+
+   Number of wires:                164
+   Number of wire bits:            464
+   Number of public wires:           9
+   Number of public wire bits:     309
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                308
+     $_MUX_                        153
+     $_ORNOT_                        2
+     $_OR_                           1
+     sky130_fd_sc_hd__dfxtp_2      152
+
+=== mkStage_1 ===
+
+   Number of wires:                339
+   Number of wire bits:           1020
+   Number of public wires:          32
+   Number of public wire bits:     713
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                358
+     $_ANDNOT_                      86
+     $_AND_                         10
+     $_MUX_                         34
+     $_NAND_                        18
+     $_NOR_                          5
+     $_NOT_                         23
+     $_ORNOT_                        4
+     $_OR_                         141
+     $_XNOR_                         5
+     $_XOR_                         26
+     $paramod\FIFOL1\width=32'00000000000000000000000000000001      1
+     $paramod\FIFOL1\width=32'00000000000000000000000001000000      2
+     mkStage_2                       1
+     mkStage_3                       1
+     mkStage_4                       1
+
+=== mkStage_2 ===
+
+   Number of wires:                507
+   Number of wire bits:            934
+   Number of public wires:           8
+   Number of public wire bits:     435
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                621
+     $_ANDNOT_                      55
+     $_MUX_                        443
+     $_NOT_                          1
+     $_ORNOT_                       55
+     $_OR_                          66
+     $paramod\FIFOL1\width=32'00000000000000000000000010010111      1
+
+=== mkStage_3 ===
+
+   Number of wires:               1254
+   Number of wire bits:           1576
+   Number of public wires:           9
+   Number of public wire bits:     331
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1314
+     $_ANDNOT_                     340
+     $_AND_                          8
+     $_MUX_                        163
+     $_NAND_                        36
+     $_NOR_                         54
+     $_NOT_                        168
+     $_ORNOT_                       10
+     $_OR_                         264
+     $_XNOR_                        50
+     $_XOR_                        220
+     $paramod\FIFOL1\width=32'00000000000000000000000010000000      1
+
+=== mkStage_4 ===
+
+   Number of wires:               1227
+   Number of wire bits:           1489
+   Number of public wires:          12
+   Number of public wire bits:     274
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1281
+     $_ANDNOT_                     259
+     $_AND_                         76
+     $_MUX_                        444
+     $_NAND_                         6
+     $_NOR_                         11
+     $_NOT_                         62
+     $_ORNOT_                        9
+     $_OR_                         376
+     $_XNOR_                         1
+     $_XOR_                         35
+     $paramod\FIFOL1\width=32'00000000000000000000000001000001      1
+     $paramod\FIFOL1\width=32'00000000000000000000000001000101      1
+
+=== design hierarchy ===
+
+   mkStage_1                         1
+     $paramod\FIFOL1\width=32'00000000000000000000000000000001      1
+     $paramod\FIFOL1\width=32'00000000000000000000000001000000      2
+     mkStage_2                       1
+       $paramod\FIFOL1\width=32'00000000000000000000000010010111      1
+     mkStage_3                       1
+       $paramod\FIFOL1\width=32'00000000000000000000000010000000      1
+     mkStage_4                       1
+       $paramod\FIFOL1\width=32'00000000000000000000000001000001      1
+       $paramod\FIFOL1\width=32'00000000000000000000000001000101      1
+
+   Number of wires:               3960
+   Number of wire bits:           6722
+   Number of public wires:         124
+   Number of public wire bits:    2886
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               4690
+     $_ANDNOT_                     740
+     $_AND_                         94
+     $_MUX_                       1640
+     $_NAND_                        60
+     $_NOR_                         70
+     $_NOT_                        254
+     $_ORNOT_                       92
+     $_OR_                         854
+     $_XNOR_                        56
+     $_XOR_                        281
+     sky130_fd_sc_hd__dfxtp_2      549
+

@@ -11,19 +11,18 @@ Notes:
 package Stage_2;
 import  FIFO :: *;
 import Type_defs :: *;
-import Stage_3::*;
 
 //Interface for stage_2
 //method to interface with Stage_1
 interface Stage_2_Ifc;
     method Action feed(Output_stage_1 output_stage_1);//enq pipeline FIFO of Stage_2 
+    method Output_stage_2 read_output_2();
 endinterface :Stage_2_Ifc
 
 //module declaration
 (*synthesize*)
 module mkStage_2(Stage_2_Ifc);
     FIFO#(Output_stage_1) input_fifo<-mkLFIFO;
-    Stage_3_Ifc stage_3<-mkStage_3;//Interface with Stage_3
     //The following function will update the output
     function Output_stage_2 get_stage_2();//allows stage_3 to get stage_2 results
         Output_stage_2 output_stage_2;
@@ -49,16 +48,18 @@ module mkStage_2(Stage_2_Ifc);
         end
         return output_stage_2;
     endfunction:get_stage_2
-    rule rl_feed_stage_3;
+    rule rl_deq_stage_2;
         $display("\n**Stage_2_Output**\nsign_input_1:%0b\nsign_input_2:%0b\nexponent:%0b\nmant_input_1:%0b\nmant_input_2:%0b\n",
         get_stage_2().sign_input_1,get_stage_2().sign_input_2,
         get_stage_2().exponent,get_stage_2().mantissa_input_1,
         get_stage_2().mantissa_input_2);
-        stage_3.feed(get_stage_2());
         input_fifo.deq;
-    endrule : rl_feed_stage_3
+    endrule : rl_deq_stage_2
     method Action feed(Output_stage_1 output_stage_1);
         input_fifo.enq(output_stage_1);
     endmethod: feed
+    method Output_stage_2 read_output_2();
+        return get_stage_2();
+    endmethod: read_output_2
 endmodule
 endpackage : Stage_2

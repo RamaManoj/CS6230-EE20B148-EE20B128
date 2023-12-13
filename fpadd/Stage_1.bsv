@@ -14,13 +14,16 @@ Notes:
 package Stage_1;
 import  FIFO :: *;
 import Type_defs :: *;
-import  Stage_2 :: *;
+import Stage_2 :: *;
+import Stage_3 :: *;
+import Stage_4 :: *;
 
 //Interface for stage_1
 //one method to interface with testbench
 
 interface Stage_1_Ifc;
     method Action feed(Double input_1,Double input_2, Bool is_valid);//allows tb to give input       
+    method Output_stage_4 read_output();
 endinterface :Stage_1_Ifc
 
 //module declaration
@@ -29,7 +32,9 @@ module mkStage_1(Stage_1_Ifc);
     FIFO#(Double) input_1<-mkLFIFO;
     FIFO#(Double) input_2<-mkLFIFO;
     FIFO#(Bool) is_valid<-mkLFIFO;//input registers, will store value from Tb
-    Stage_2_Ifc stage_2<-mkStage_2;//Interface with Stage_2
+    Stage_2_Ifc stage_2<-mkStage_2;
+    Stage_3_Ifc stage_3<-mkStage_3;
+    Stage_4_Ifc stage_4<-mkStage_4;
     //The following function will update the output
     function Output_stage_1 get_stage_1();//allows stage_2 to get stage_1 results
         //A rule will enq the return value to next stage of interface type FIFO#(Output_stage_1) and deq this FIFO
@@ -136,12 +141,23 @@ module mkStage_1(Stage_1_Ifc);
         //calculating exponent diff at end without using primary inputs allows to account for actual exponent in subnormal numbers
         return output_stage_1;
     endfunction:get_stage_1
-    rule rl_feed_stage_2;
-        stage_2.feed(get_stage_1());
+    rule rl_deq_stage_1;
         input_1.deq;
         input_2.deq;
         is_valid.deq;
-    endrule : rl_feed_stage_2
+    endrule : rl_deq_stage_1
+    rule  rl_stage_2;
+        stage_2.feed(get_stage_1());
+    endrule : rl_stage_2
+    rule  rl_stage_3;
+        stage_3.feed(stage_2.read_output_2());
+    endrule : rl_stage_3
+    rule  rl_stage_4;
+        stage_4.feed(stage_3.read_output_3());
+    endrule : rl_stage_4
+    method Output_stage_4 read_output();
+        return stage_4.read_output_4();
+    endmethod
     method Action feed(Double input_1_tb,Double input_2_tb, Bool is_valid_tb);
         input_1.enq(input_1_tb);
         input_2.enq(input_2_tb);

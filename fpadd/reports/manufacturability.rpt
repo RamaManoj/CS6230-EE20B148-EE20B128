@@ -1,0 +1,19 @@
+Design Name: mkStage_1
+Run Directory: /openlane/designs/fpadd/runs/RUN_2023.12.13_21.39.14
+----------------------------------------
+
+Magic DRC Summary:
+Source: /openlane/designs/fpadd/runs/RUN_2023.12.13_21.39.14/reports/signoff/drc.rpt
+Total Magic DRC violations is 0
+----------------------------------------
+
+LVS Summary:
+Source: /openlane/designs/fpadd/runs/RUN_2023.12.13_21.39.14/logs/signoff/41-mkStage_1.lef.lvs.log
+Number of nets: 5025                       |Number of nets: 5025                       
+Design is LVS clean.
+----------------------------------------
+
+Antenna Summary:
+Source: /openlane/designs/fpadd/runs/RUN_2023.12.13_21.39.14/logs/signoff/44-arc.log
+Pin violations: 7
+Net violations: 7
