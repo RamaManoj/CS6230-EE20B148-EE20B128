@@ -95,4 +95,4 @@ We have 4 bsv files for each stage of the pipeline and a testbench to verify the
 
 ### Steps to execute the code
 
-To run the functional simulation for the module using the provided testbench, just execute `compile.sh` in the terminal while in the `fpadder` directory. This command will automatically run the simulation.
+To run the functional simulation for the module using the provided testbench, just execute `compile.sh` in the terminal while in the `fpadd` directory. This command will automatically run the simulation.
