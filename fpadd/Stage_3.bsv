@@ -25,7 +25,7 @@ endinterface :Stage_3_Ifc
 module mkStage_3(Stage_3_Ifc);
     FIFO#(Output_stage_2) input_fifo<-mkLFIFO;
     //The following function will update the output
-    function Output_stage_3 get_stage_3();//allows stage_2 to get stage_1 results
+    function Output_stage_3 get_stage_3();//allows stage_4 to get stage_3 results
         Output_stage_3 output_stage_3;
         output_stage_3.is_valid=input_fifo.first.is_valid;
         output_stage_3.is_infi=False;
