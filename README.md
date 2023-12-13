@@ -17,7 +17,7 @@ Double-precision floating-point format (double/float64) is a floating-point numb
 - Exponent: 11 bits
 - Significand precision: 52 bits
 
-// Add picture of floating point representation
+![image](https://github.com/RamaManoj/CS6320/blob/5ede2a9f49b350e0f4e48d4dac42931ed73bac3b/float64.png)
 
 The sign bit determines the sign of the number.
 
@@ -46,7 +46,9 @@ We have divided the process of floating point addition into 4 sequential stages 
 - Add or subtract the mantissas.
 - Normalize the results and handle exceptional cases.
 
-![image](/add pipeline pic here)
+<p align="center">
+  <img src="https://github.com/RamaManoj/CS6320/blob/5ede2a9f49b350e0f4e48d4dac42931ed73bac3b/fpadder_pipeline.png" />
+</p>
 
 ### Stage-1
 The goals of this stage are to:
