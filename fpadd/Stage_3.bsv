@@ -1,3 +1,14 @@
+//Date:9-12-2023
+//Author:V.V.S.Rama Manoj
+/*Goals of the following stage:
+1. This stage will perform addition and return 
+   *the sign of the final result
+   *positive, non normalized mantissa of the final result
+   *Exponent of result before normalization
+2. If any of the special case flags are set, the result will be overwritten accordingly in 
+   the order of NaN, input 1 is infinite, input 2 is infinite
+   
+*/
 package Stage_3;
 import  FIFO :: *;
 import Type_defs :: *;

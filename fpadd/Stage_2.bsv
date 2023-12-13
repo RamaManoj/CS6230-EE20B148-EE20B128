@@ -1,4 +1,4 @@
-//Date:25-11-2023
+//Date:9-12-2023
 //Author:V.V.S.Rama Manoj
 /*Goals of the following stage:
 1. This stage will shift the mantissa of the number with the smaller exponent to the right
@@ -25,7 +25,7 @@ module mkStage_2(Stage_2_Ifc);
     FIFO#(Output_stage_1) input_fifo<-mkLFIFO;
     Stage_3_Ifc stage_3<-mkStage_3;//Interface with Stage_3
     //The following function will update the output
-    function Output_stage_2 get_stage_2();//allows stage_2 to get stage_1 results
+    function Output_stage_2 get_stage_2();//allows stage_3 to get stage_2 results
         Output_stage_2 output_stage_2;
         //passing sign bits and flag bits
         output_stage_2.sign_input_1=input_fifo.first.sign_input_1;

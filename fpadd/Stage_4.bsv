@@ -16,6 +16,7 @@ import Type_defs :: *;
 //method to interface with Stage_3
 interface Stage_4_Ifc;
     method Action feed(Output_stage_3 output_stage_3);//enq pipeline FIFO of Stage_4
+    method Output_stage_4 read_output();
 endinterface :Stage_4_Ifc
 
 //module declaration
@@ -245,5 +246,8 @@ module mkStage_4(Stage_4_Ifc);
     method Action feed(Output_stage_3 output_stage_3);
         input_fifo.enq(output_stage_3);
     endmethod: feed
+    method Output_stage_4 read_output();
+        return output_fifo.first;
+    endmethod
 endmodule
 endpackage : Stage_4

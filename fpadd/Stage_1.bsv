@@ -4,7 +4,7 @@
 1. Extract exponent, Mantissa, Sign bit from given inputs
 2. Append 1 and zero extend mantissas
 3. find difference of exponents
-4. Set all necessary special case flags: isNaN,isZero,isInfi
+4. Set all necessary special case flags: isNaN,isInfi
 -----------------------------------------------------------------------------
 Notes:
 1. Input include two Double Precision floating point numbers from testbench.
@@ -110,6 +110,7 @@ module mkStage_1(Stage_1_Ifc);
             is_subnorm_2=False;
         end
         //generating mantissa for input_1, note that when the number is zero or subnornal, the implicit "1" is not considered
+        //55th bit is sign,54th is to accomadate last carry while adding,53th is the implicit 1/0
         if(first_input_1.exponent==11'b00000000000) begin
             output_stage_1.mantissa_input_1={3'b000,first_input_1.mantissa};
         end 
