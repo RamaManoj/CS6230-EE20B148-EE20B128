@@ -1,4 +1,5 @@
 # Pipelined double precision( fp64 ) floating point adder
+
 Fully functional double precision floating point adder which handles all cases including edge cases like NaN, +inf, -inf, and subnormal numbers according to the IEEE 754 standard.
 
 ## Table of Contents
