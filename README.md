@@ -8,6 +8,7 @@ Fully functional double precision floating point adder which handles all cases i
 - [Our Approach](#our-approach)
 - [Functional Verification](#functional-verification)
 - [Usage](#usage)
+- [References](#references)
 
 
 ## Introduction
@@ -96,3 +97,7 @@ We have 4 bsv files for each stage of the pipeline and a testbench to verify the
 ### Steps to execute the code
 
 To run the functional simulation for the module using the provided testbench, just execute `compile.sh` in the terminal while in the `fpadd` directory. This command will automatically run the simulation.
+
+## References
+
+1. 
