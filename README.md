@@ -100,4 +100,6 @@ To run the functional simulation for the module using the provided testbench, ju
 
 ## References
 
-1. 
+1. [Comparison of pipelined IEEE-754 standard floating point adder with
+unpipelined adder](https://drive.google.com/file/d/1QoFRBWotnZkIy2AAeQb8t8_fQCMpxh0K/view?usp=sharing)
+2. [Double-precision floating-point format](https://en.wikipedia.org/wiki/Double-precision_floating-point_format)
