@@ -7,6 +7,7 @@ Fully functional double precision floating point adder which handles all cases i
 - [Introduction](#introduction)
 - [Our Approach](#our-approach)
 - [Functional Verification](#functional-verification)
+- [Synthesis reports](#synthesis-reports)
 - [Usage](#usage)
 - [References](#references)
 
@@ -90,6 +91,9 @@ Also, since there are multiple files to be handled to run the simulation we have
 To make the testbench, we first created the test cases for all usual calculations and also for all the special/edge cases like subnormal numbers, NaN, and inf. Then we stored all these test cases as array variables. Using a counter variable we defined a rule to feed input to the Stage_1 of the fpadder. The inputs, obtained result and expected result are displayed for each test case to verify functionality. The whole module was thoroughly tested for bugs and simulated through testbench.
 
 One note to take care of is that there is an initial latency of 4 clock cycles due to pipelining and thereafter there is a new output after every clock cycle.
+
+## Synthesis reports
+We have ran the synthesis using OpenLane PD flow tool. The results of the synthesis, area and timing reports are present in the `/fpadder/reports` directory.
 
 ## Usage
 We have 4 bsv files for each stage of the pipeline and a testbench to verify the functionality. We have also provided the verilog files of these bsv files which were used for area estimation in the synthesis tool.
