@@ -77,11 +77,11 @@ The goals of this stage are to:
 - Normalize the mantissa
 - Set the mantissa and exponent for special cases.
 - Set final output for the subnormal case.
-- Enqueue the new output to out FIFO and dequeue the previous output to output port.
+- Enqueue the new output to output FIFO and dequeue the previous output.
 
-We have decided to create separate modules for each stage in different files as a package. We imported other stages recursively and connected the interfaces using the feed method. For the decision of how to goa bout pipelining, we initially thought to go with normal mkreg registers but encountered the Pipeline FIFO in the bluespec documentation which was optimized for the use in pipelining. So we chose FIFOL as the choice of pipeline register.
+We have decided to create separate modules for each stage in different files as a package. We imported other stages recursively and connected the interfaces using the feed method. For the decision of how to go about pipelining, we initially thought to go with normal mkReg registers but encountered the Pipeline FIFO in the bluespec documentation which was optimized for the use in pipelining. So we chose FIFOL as the choice of pipeline register.
 
-For readibility of code, we have defined all our custom data types in `Type_defs.bsv`. 
+For readability of code, we have defined all our custom data types in `Type_defs.bsv`. 
 
 Also, since there are multiple files to be handled to run the simulation we have created a shell script (`compile.sh`) to run the simulation using our testbench.
 
@@ -96,7 +96,7 @@ We have 4 bsv files for each stage of the pipeline and a testbench to verify the
 
 ### Steps to execute the code
 
-To run the functional simulation for the module using the provided testbench, just execute `compile.sh` in the terminal while in the `fpadd` directory. This command will automatically run the simulation.
+To run the functional simulation for the module using the provided testbench, just execute `./compile.sh` in the terminal while in the `fpadd` directory. This command will automatically run the simulation.
 
 ## References
 
