@@ -1,7 +1,0 @@
-Partial/Required:  1.56, Required:    400.0, Partial:   622.22, Net: net112, Pin: input_2._248_/A1, Layer: met1
-Partial/Required:  1.50, Required:    400.0, Partial:   598.33, Net: stage_2.input_fifo$D_OUT\[38\], Pin: stage_2._0670_/A1, Layer: met1
-Partial/Required:  1.27, Required:    400.0, Partial:    510.0, Net: net44, Pin: input_1._241_/A1, Layer: met1
-Partial/Required:  1.23, Required:    400.0, Partial:   490.33, Net: net43, Pin: input_1._239_/A1, Layer: met1
-Partial/Required:  1.22, Required:    400.0, Partial:   486.78, Net: net14, Pin: input_1._145_/A1, Layer: met1
-Partial/Required:  1.20, Required:    400.0, Partial:   478.28, Net: input_1._066_, Pin: input_1._272_/S, Layer: met1
-Partial/Required:  1.04, Required:    400.0, Partial:    415.0, Net: net106, Pin: input_2._237_/A1, Layer: met1
